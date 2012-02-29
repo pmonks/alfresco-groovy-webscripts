@@ -1,0 +1,7 @@
+<webscript>
+  <shortname>Hello World (Groovy)</shortname>
+  <description>Hello World from Groovy.</description>
+  <url>/groovy/helloworld</url>
+  <format default="html"/>
+  <authentication>admin</authentication>
+</webscript>

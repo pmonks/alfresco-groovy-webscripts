@@ -62,7 +62,7 @@
     <dependency>
       <groupId>net.sf.json-lib</groupId>
       <artifactId>json-lib</artifactId>
-      <version>2.3</version>
+      <version>2.4</version>
       <classifier>jdk15</classifier>
       <scope>compile</scope>
       <!-- Exclude dependent libraries that are already bundled with Alfresco -->
@@ -90,16 +90,19 @@
   <build>
     <plugins>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.3.2</version>
         <configuration>
           <source>1.6</source>
           <target>1.6</target>
+          <encoding>UTF-8</encoding>
         </configuration>
       </plugin>
       <plugin>
         <groupId>org.alfresco.maven.plugin</groupId>
         <artifactId>maven-amp-plugin</artifactId>
-        <version>3.0.2</version>
+        <version>3.0.3</version>
         <extensions>true</extensions>
         <configuration>
           <archive>

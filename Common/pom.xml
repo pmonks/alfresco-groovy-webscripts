@@ -56,7 +56,7 @@
       <groupId>org.codehaus.groovy</groupId>
       <artifactId>groovy-all</artifactId>
       <version>1.7.5</version>
-      <scope>compile</scope>
+      <scope>provided</scope>  <!-- Since Alfresco v4.0 -->
     </dependency>
   </dependencies>
 

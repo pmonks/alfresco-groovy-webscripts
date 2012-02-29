@@ -7,7 +7,7 @@
   <artifactId>alfresco-groovy-webscripts-scriptrunner</artifactId>
   <packaging>amp</packaging>
   <name>Groovy Web Scripts - Script Runner</name>
-  <version>1.1-SNAPSHOT</version>
+  <version>1.1</version>
 
   <repositories>
     <repository>

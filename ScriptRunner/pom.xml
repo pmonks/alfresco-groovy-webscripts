@@ -7,49 +7,53 @@
   <artifactId>alfresco-groovy-webscripts-scriptrunner</artifactId>
   <packaging>amp</packaging>
   <name>Groovy Web Scripts - Script Runner</name>
-  <version>1.1</version>
+  <version>1.2</version>
 
-  <repositories>
-    <repository>
-      <id>jboss-public</id>
-      <name>JBoss Public Repository</name>
-      <url>http://repository.jboss.org/nexus/content/groups/public</url>
-    </repository>
-    <repository>
-      <id>spring-milestones</id>
-      <name>Spring Milestone Repository</name>
-      <url>http://extensions.springframework.org/milestone</url>
-    </repository>
-    <repository>
-      <id>spring-snapshots</id>
-      <name>Spring Snapshot Repository</name>
-      <url>http://extensions.springframework.org/snapshot</url>
-    </repository>
-    <repository>
-      <id>alfresco-public</id>
-      <name>Alfresco Public Repository</name>
-      <url>http://maven.alfresco.com/nexus/content/repositories/releases</url>
-    </repository>
-    <repository>
-      <id>alfresco-employee-repository</id>
-      <name>Alfresco Employee Repository (private)</name>
-      <url>https://svn.alfresco.com/repos/field/maven</url>
-    </repository>
-  </repositories>
+  <licenses>
+    <license>
+      <name>Apache License 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
 
-  <pluginRepositories>
-    <pluginRepository>
-      <id>alfresco-public</id>
-      <name>Alfresco</name>
-      <url>http://maven.alfresco.com/nexus/content/repositories/releases</url>
-    </pluginRepository>
-  </pluginRepositories>
+  <developers>
+    <developer>
+      <id>pmonks</id>
+      <name>Peter Monks</name>
+      <email>pmonks@gmail.com</email>
+    </developer>
+  </developers>
+
+  <scm>
+    <connection>scm:hg:https://code.google.com/p/alfresco-groovy-webscripts/</connection>
+    <developerConnection>scm:hg:https://code.google.com/p/alfresco-groovy-webscripts/</developerConnection>
+    <url>https://code.google.com/p/alfresco-groovy-webscripts/</url>
+  </scm>
+
+  <issueManagement>
+    <system>Google Code</system>
+    <url>http://code.google.com/p/alfresco-groovy-webscripts/issues/list</url>
+  </issueManagement>
+
+  <properties>
+    <version.java>1.6</version.java>
+    <version.alfresco>4.1.1</version.alfresco>
+    <version.webscripts>1.2.0-M3</version.webscripts>
+    <version.ezmorph>1.0.6</version.ezmorph>
+    <version.json-lib>2.4</version.json-lib>
+    <version.junit>4.10</version.junit>
+    <version.compiler-plugin>3.0</version.compiler-plugin>
+    <version.amp-plugin>3.0.4</version.amp-plugin>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+  </properties>
 
   <dependencies>
     <dependency>
       <groupId>net.sf.ezmorph</groupId>
       <artifactId>ezmorph</artifactId>
-      <version>1.0.6</version>
+      <version>${version.ezmorph}</version>
       <scope>compile</scope>
       <!-- Exclude dependent libraries that are already bundled with Alfresco -->
       <exclusions>
@@ -62,7 +66,7 @@
     <dependency>
       <groupId>net.sf.json-lib</groupId>
       <artifactId>json-lib</artifactId>
-      <version>2.4</version>
+      <version>${version.json-lib}</version>
       <classifier>jdk15</classifier>
       <scope>compile</scope>
       <!-- Exclude dependent libraries that are already bundled with Alfresco -->
@@ -92,19 +96,20 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>2.3.2</version>
+        <version>${version.compiler-plugin}</version>
         <configuration>
-          <source>1.6</source>
-          <target>1.6</target>
-          <encoding>UTF-8</encoding>
+          <source>${version.java}</source>
+          <target>${version.java}</target>
+          <encoding>${project.build.sourceEncoding}</encoding>
         </configuration>
       </plugin>
       <plugin>
         <groupId>org.alfresco.maven.plugin</groupId>
         <artifactId>maven-amp-plugin</artifactId>
-        <version>3.0.3</version>
+        <version>${version.amp-plugin}</version>
         <extensions>true</extensions>
         <configuration>
+          <mAmpJarExcludes>alfresco/module/**,alfresco/extension/**,alfresco/messages/**</mAmpJarExcludes>
           <archive>
             <addMavenDescriptor>false</addMavenDescriptor>
           </archive>

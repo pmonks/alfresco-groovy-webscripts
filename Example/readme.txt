@@ -10,11 +10,10 @@ Peter Monks (pmonks@alfresco.com)
 
 Pre-requisites
 --------------
-* Alfresco (Labs or Enterprise) v3.0 or greater (earlier versions of Alfresco
-  bundle a version of Spring that doesn't support Groovy beans).
+* Alfresco (Community or Enterprise) v4.0 or greater.
 
 * The "Common" Groovy backed Web Script module has been installed (see
-  https://forge.alfresco.com/svn/groovy/branches/3.1/Common/readme.txt for
+  http://code.google.com/p/alfresco-groovy-webscripts/source/browse/Common/readme.txt for
   details).
 
 

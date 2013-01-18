@@ -28,7 +28,7 @@ Peter Monks (pmonks@alfresco.com)
 
 Pre-requisites
 --------------
-* Alfresco (Labs or Enterprise) v3.3 or greater.
+* Alfresco (Community or Enterprise) v4.0 or greater.
 
 * The "Common" Groovy backed Web Script module has been installed (see
   http://code.google.com/p/alfresco-groovy-webscripts/source/browse/Common/readme.txt for
@@ -68,9 +68,19 @@ Notes on Uploaded Scripts
   The ServiceRegistry gets injected into the script automatically and is
   accessible via a global variable called "serviceRegistry".
 
+* Uploaded scripts have access to Alfresco's entire Spring ApplicationContext (see
+  http://static.springsource.org/spring/docs/3.0.x/spring-framework-reference/html/beans.html).
+  The ApplicationContext gets injected into the script automatically and is
+  accessible via a global variable called "applicationContext".
+  Be very careful using this object, as incorrect use can damage your Alfresco installation or
+  repository!
+
 * The result of the last line of the script is converted into JSON format and
   returned by the script.  This means that arbitrarily complex result sets can
   be generated as a POGO graph, and then simply returned off the end of the
   script to be returned to the caller.  Note that this is done entirely in
   memory, so extremely large POGO graphs may cause Alfresco to run out of
   memory.
+
+* The script will run in a single Alfresco transaction, so care must be taken if lengthy processing
+  is undertaken by the Groovy script.

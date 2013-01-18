@@ -11,7 +11,7 @@ Peter Monks (pmonks@alfresco.com)
 
 Pre-requisites
 --------------
-* Alfresco (Labs or Enterprise) v3.3 or greater.
+* Alfresco (Community or Enterprise) v4.0 or greater.
 
 
 Installation
@@ -45,7 +45,7 @@ it up in a custom Spring application context file as follows:
     </lang:groovy>
 
     <!-- See http://wiki.alfresco.com/wiki/Web_Scripts#Spring_Bean_Declaration -->
-    <bean id="webscript.<packageId>.<serviceId>.<httpMethod>"   
+    <bean id="webscript.<packageId>.<serviceId>.<httpMethod>"
           class="org.alfresco.extension.webscripts.groovy.GroovyDelegatingWebScript"
           parent="webscript">
       <constructor-arg index="0" ref="groovy.webscript.myGroovyWebScript" />

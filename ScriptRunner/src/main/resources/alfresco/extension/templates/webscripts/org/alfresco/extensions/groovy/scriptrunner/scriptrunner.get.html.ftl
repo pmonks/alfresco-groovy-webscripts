@@ -18,7 +18,7 @@
   Notes:
   <ul>
     <li>The Alfresco <a target="_blank" href="http://dev.alfresco.com/resource/docs/java/repository/org/alfresco/service/ServiceRegistry.html">ServiceRegistry</a> is available via a variable called "serviceRegistry".</li>
-    <li>Alfresco's <a target="_blank" href="http://static.springsource.org/spring/docs/3.0.x/spring-framework-reference/html/beans.html">Spring application context</a> is available via a variable called "applicationContext".  <span style="color:red">Be very careful using this object, as incorrect use can damage your repository!</span></li>
+    <li>Alfresco's <a target="_blank" href="http://static.springsource.org/spring/docs/3.0.x/spring-framework-reference/html/beans.html">Spring application context</a> is available via a variable called "applicationContext".  <span style="color:red">Be very careful using this object, as incorrect use can damage your Alfresco installation or repository!</span></li>
     <li>A new interpreter is used for each submission - state is <strong>not</strong> retained across multiple submissions.</li>
     <li>The script will run in a single Alfresco transaction, so care must be taken if lengthy processing is undertaken by the Groovy script.</li>
   </ul>

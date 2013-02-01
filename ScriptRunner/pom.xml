@@ -38,7 +38,7 @@
 
   <properties>
     <version.java>1.6</version.java>
-    <version.alfresco>4.1.1</version.alfresco>
+    <version.alfresco>4.1.2</version.alfresco>
     <version.webscripts>1.2.0-M3</version.webscripts>
     <version.ezmorph>1.0.6</version.ezmorph>
     <version.json-lib>2.4</version.json-lib>

@@ -19,17 +19,14 @@
 
 package alfresco.extension.groovy.cmisquery
 
-import groovy.lang.Binding
-import groovy.lang.GroovyShell
-
-import org.alfresco.service.cmr.repository.*
-import org.alfresco.service.cmr.search.*
-
-import org.springframework.context.ApplicationContext
-import org.springframework.context.ApplicationContextAware
 import org.springframework.extensions.webscripts.WebScriptRequest
 import org.springframework.extensions.webscripts.Status
 import org.springframework.extensions.webscripts.Cache
+
+import org.alfresco.service.*
+import org.alfresco.service.cmr.repository.*
+import org.alfresco.service.cmr.search.*
+import org.alfresco.cmis.*
 
 import org.alfresco.extension.webscripts.groovy.GroovyDeclarativeWebScript
 
@@ -46,32 +43,18 @@ public class CMISQuery
         this.searchService   = serviceRegistry.getSearchService()
     }
 
-    public Map<String, Object> execute(WebScriptRequest request, Status status, Cache cache)
+    public Map<String, Object> execute(final WebScriptRequest request, final Status status, final Cache cache)
     {
-        def cmisQuery = request.getParameter("cmisQuery")
-
-        return(searchService.query(StoreRef.STORE_REF_WORKSPACE_SPACESSTORE , SearchService.LANGUAGE_CMIS_ALFRESCO , cmisQuery)
-
         def result
+        def cmisQuery   = request.getParameter("cmisQuery")
+        def cmisResults = (CMISResultSet)searchService.query(StoreRef.STORE_REF_WORKSPACE_SPACESSTORE , SearchService.LANGUAGE_CMIS_ALFRESCO, cmisQuery)
+        def numResults  = cmisResults.getLength()
+        def columnNames = cmisResults.getMetaData().getColumnNames()
 
-        if (script)
-        {
-            def binding      = new Binding([serviceRegistry:serviceRegistry,
-                                            applicationContext:applicationContext])
-            def scriptOutput = new GroovyShell(this.getClass().getClassLoader(), binding).evaluate(script)
-
-            if (request.getFormat() == "json")
-            {
-                def json = JSONSerializer.toJSON(scriptOutput).toString()
-                result = [json:json]
-            }
-            else
-            {
-                result = [scriptOutput:scriptOutput]
-            }
-        }
-
-        return(result)
+        result = [ numResults  : numResults,
+                   columnNames : columnNames,
+                   cmisResults : cmisResults ]
+        return(result);
     }
 
 }

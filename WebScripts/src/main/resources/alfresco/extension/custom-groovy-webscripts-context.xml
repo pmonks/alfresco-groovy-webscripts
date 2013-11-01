@@ -3,6 +3,7 @@
        xmlns:lang="http://www.springframework.org/schema/lang"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-2.0.xsd">
 
+  <!-- Groovy script runner web script -->
   <lang:groovy id="groovy.webscript.ScriptRunner"
                refresh-check-delay="5000"
                script-source="classpath:alfresco/extension/groovy/webscripts/scriptrunner/GroovyScriptRunner.groovy" />
@@ -13,10 +14,11 @@
     <constructor-arg index="0" ref="groovy.webscript.ScriptRunner" />
   </bean>
 
+  <!-- CMIS Query web script -->
   <lang:groovy id="groovy.webscript.CMISQuery"
                refresh-check-delay="5000"
                script-source="classpath:alfresco/extension/groovy/webscripts/cmisquery/CMISQuery.groovy">
-    <lang:property name="serviceRegistry" ref="serviceRegistry" />
+    <lang:property name="serviceRegistry" ref="ServiceRegistry" />
   </lang:groovy>
 
   <bean id="webscript.org.alfresco.extensions.groovy.cmisquery.cmisquery.post"

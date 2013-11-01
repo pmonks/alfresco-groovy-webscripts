@@ -1,10 +1,10 @@
 <webscript>
   <shortname>Alfresco CMIS Query Tool Processor</shortname>
-  <description>Web based Alfresco version of the Groovy Shell - Processing Web Script.</description>
-  <url>/groovy/scriptrunner</url>
-  <format default="json"/>
+  <description>Simple Web Script for executing CMIS Queries - Processing Web Script.</description>
+  <url>/groovy/cmisquery</url>
+  <format default="html"/>
   <authentication>admin</authentication>
-  <family>Groovy Shell</family>
+  <family>Groovy Web Scripts</family>
   <cache>
     <never>true</never>
   </cache>

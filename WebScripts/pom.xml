@@ -3,53 +3,14 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.alfresco.extension</groupId>
+  <parent>
+    <groupId>org.alfresco.extension</groupId>
+    <artifactId>alfresco-groovy-webscripts-parent</artifactId>
+    <version>1.3</version>
+  </parent>
   <artifactId>alfresco-groovy-webscripts-webscripts</artifactId>
   <packaging>amp</packaging>
   <name>Groovy Web Scripts - Web Scripts</name>
-  <version>1.3</version>
-
-  <licenses>
-    <license>
-      <name>Apache License 2.0</name>
-      <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
-      <distribution>repo</distribution>
-    </license>
-  </licenses>
-
-  <developers>
-    <developer>
-      <id>pmonks</id>
-      <name>Peter Monks</name>
-      <email>pmonks@gmail.com</email>
-    </developer>
-  </developers>
-
-  <scm>
-    <connection>scm:hg:https://code.google.com/p/alfresco-groovy-webscripts/</connection>
-    <developerConnection>scm:hg:https://code.google.com/p/alfresco-groovy-webscripts/</developerConnection>
-    <url>https://code.google.com/p/alfresco-groovy-webscripts/</url>
-  </scm>
-
-  <issueManagement>
-    <system>Google Code</system>
-    <url>http://code.google.com/p/alfresco-groovy-webscripts/issues/list</url>
-  </issueManagement>
-
-  <properties>
-    <version.java>1.6</version.java>
-    <version.groovy>2.1.7</version.groovy>
-    <version.webscripts>1.2.0</version.webscripts>
-    <version.junit>4.11</version.junit>
-    <version.compiler-plugin>3.1</version.compiler-plugin>
-    <version.amp-plugin>3.0.4</version.amp-plugin>
-    <version.alfresco-enterprise>4.2.0</version.alfresco-enterprise>
-    <version.alfresco-community>4.2.e</version.alfresco-community>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <version.ezmorph>1.0.6</version.ezmorph>
-    <version.json-lib>2.4</version.json-lib>
-  </properties>
 
   <dependencies>
     <dependency>
@@ -92,32 +53,5 @@
       </exclusions>
     </dependency>
   </dependencies>
-
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>${version.compiler-plugin}</version>
-        <configuration>
-          <source>${version.java}</source>
-          <target>${version.java}</target>
-          <encoding>${project.build.sourceEncoding}</encoding>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.alfresco.maven.plugin</groupId>
-        <artifactId>maven-amp-plugin</artifactId>
-        <version>${version.amp-plugin}</version>
-        <extensions>true</extensions>
-        <configuration>
-          <mAmpJarExcludes>alfresco/module/**,alfresco/extension/**,alfresco/messages/**</mAmpJarExcludes>
-          <archive>
-            <addMavenDescriptor>false</addMavenDescriptor>
-          </archive>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
 
 </project>

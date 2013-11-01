@@ -35,26 +35,29 @@ public class CMISQuery
     implements GroovyDeclarativeWebScript
 {
     private def serviceRegistry
-    private def searchService
+    private def cmisQueryService
 
     public void setServiceRegistry(final ServiceRegistry serviceRegistry)
     {
-        this.serviceRegistry = serviceRegistry
-        this.searchService   = serviceRegistry.getSearchService()
+        this.serviceRegistry  = serviceRegistry
+        this.cmisQueryService = serviceRegistry.getCMISQueryService()
     }
 
     public Map<String, Object> execute(final WebScriptRequest request, final Status status, final Cache cache)
     {
         def result
-        def cmisQuery   = request.getParameter("cmisQuery")
-        def cmisResults = (CMISResultSet)searchService.query(StoreRef.STORE_REF_WORKSPACE_SPACESSTORE , SearchService.LANGUAGE_CMIS_ALFRESCO, cmisQuery)
-        def numResults  = cmisResults.getLength()
-        def columnNames = cmisResults.getMetaData().getColumnNames()
+        def cmisQuery        = request.getParameter("cmisQuery")
+        def cmisQueryOptions = new CMISQueryOptions(cmisQuery, StoreRef.STORE_REF_WORKSPACE_SPACESSTORE)
 
-        result = [ numResults  : numResults,
-                   columnNames : columnNames,
-                   cmisResults : cmisResults ]
+        cmisQueryOptions.setQueryMode(CMISQueryOptions.CMISQueryMode.CMS_WITH_ALFRESCO_EXTENSIONS) // WTF isn't this in the constructor??
+
+        def cmisResults = cmisQueryService.query(cmisQueryOptions)
+        def rowCount    = cmisResults.getLength()
+        def columns     = cmisResults.getMetaData().getColumnNames()
+
+        result = [ rowCount : rowCount,
+                   columns  : columns,
+                   rows     : cmisResults.iterator() ]
         return(result);
     }
-
 }

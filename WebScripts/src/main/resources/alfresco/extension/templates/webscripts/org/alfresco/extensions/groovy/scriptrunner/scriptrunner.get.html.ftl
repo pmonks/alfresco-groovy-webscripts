@@ -5,18 +5,17 @@
 <link rel="stylesheet" href="/alfresco/css/main.css" type="text/css"/>
 </head>
 <body>
-<div style="width:100%">
+<div style="display:block;width:100%">
   <div style="float:left;width:60%;height:50%">
-    Type your Groovy script here:<br/>
+    <h2>Groovy script:</h2>
     <form method="POST" action="${url.service}.json" target="results">
       <textarea cols="160" rows="25" name="script"></textarea>
       <br/>
-      <input type="submit" value="Go!"/>
+      <button type="submit"><span style="font-size:150%;font-weight:bold">&nbsp;&nbsp;&nbsp;&nbsp;Go!&nbsp;&nbsp;&nbsp;&nbsp;</button>
     </form>
   </div>
   <div style="float:right;width:40%;height:50%">
-    <br/>
-    Notes:
+    <h2>Notes:</h2>
     <ul>
       <li>The Alfresco <a target="_blank" href="http://dev.alfresco.com/resource/docs/java/repository/org/alfresco/service/ServiceRegistry.html">ServiceRegistry</a> is available via a variable called "serviceRegistry".</li>
       <li>Alfresco's <a target="_blank" href="http://static.springsource.org/spring/docs/3.0.x/spring-framework-reference/html/beans.html">Spring application context</a> is available via a variable called "applicationContext".  <span style="color:red">Be very careful using this object, as incorrect use can damage your Alfresco installation or repository!</span></li>
@@ -25,9 +24,9 @@
     </ul>
   </div>
 </div>
-<div style="width:100%;height:300px">
-  Results:</br/>
-  <iframe style="width:80%;height:300px" name="results" src=""></iframe>
+<div style="display:block;width:100%;height:60%">
+  <h2>Results:</h2>
+  <iframe style="width:99%;height:55%" name="results" src=""></iframe>
 </div>
 </body>
 </html>

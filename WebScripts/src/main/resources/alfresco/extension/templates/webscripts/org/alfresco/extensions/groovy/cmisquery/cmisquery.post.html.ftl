@@ -6,18 +6,29 @@
 <link rel="stylesheet" href="/alfresco/css/main.css" type="text/css"/>
 </head>
 <body>
-[#if numResults?? && columnNames?? && cmisResults??]
-<p>Query returned ${numResults} rows.</p>
-<table>
+[#if rowCount?? && columns?? && rows??]
+<p>Query returned ${rowCount} rows.</p>
+<table border="1" cellspacing="0">
   <tr>
-  [#list columnsNames as columnName]
-    <th>${columnName}</th>
+  [#list columns as column]
+    <th>${column!"<i>(null)</i>"}</th>
   [/#list]
   </tr>
-  [#list cmisResults as result]
+  [#list rows as row]
   <tr>
-    [#list result as columnValue]
-    <td>${columnValue}</td>
+    [#list columns as column]
+      [#if row.getValue(column)??]
+        [#assign columnValue = row.getValue(column)]
+        [#if columnValue?is_date]
+    <td>${columnValue?datetime?string}</td>
+        [#elseif columnValue?is_number]
+    <td>${columnValue?c}</td>
+        [#else]
+    <td>${columnValue?string}</td>
+        [/#if]
+      [#else]
+    <td><i>(null)</i></td>
+      [/#if]
     [/#list]
   </tr>
   [/#list]

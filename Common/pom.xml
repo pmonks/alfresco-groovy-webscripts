@@ -7,7 +7,7 @@
   <artifactId>alfresco-groovy-webscripts-common</artifactId>
   <packaging>amp</packaging>
   <name>Groovy Web Scripts - Common Functionality</name>
-  <version>1.2</version>
+  <version>1.3</version>
 
   <licenses>
     <license>

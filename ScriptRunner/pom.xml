@@ -38,15 +38,17 @@
 
   <properties>
     <version.java>1.6</version.java>
-    <version.alfresco>4.1.2</version.alfresco>
-    <version.webscripts>1.2.0-M3</version.webscripts>
-    <version.ezmorph>1.0.6</version.ezmorph>
-    <version.json-lib>2.4</version.json-lib>
-    <version.junit>4.10</version.junit>
-    <version.compiler-plugin>3.0</version.compiler-plugin>
+    <version.groovy>1.7.5</version.groovy>
+    <version.webscripts>1.2.0</version.webscripts>
+    <version.junit>4.11</version.junit>
+    <version.compiler-plugin>3.1</version.compiler-plugin>
     <version.amp-plugin>3.0.4</version.amp-plugin>
+    <version.alfresco-enterprise>4.2.0</version.alfresco-enterprise>
+    <version.alfresco-community>4.2.e</version.alfresco-community>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <version.ezmorph>1.0.6</version.ezmorph>
+    <version.json-lib>2.4</version.json-lib>
   </properties>
 
   <dependencies>

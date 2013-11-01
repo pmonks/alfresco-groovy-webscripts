@@ -3,7 +3,7 @@
   <description>Simple Web Script for executing CMIS Queries - Processing Web Script.</description>
   <url>/groovy/cmisquery</url>
   <format default="html"/>
-  <authentication>admin</authentication>
+  <authentication>user</authentication>
   <family>Groovy</family>
   <cache>
     <never>true</never>

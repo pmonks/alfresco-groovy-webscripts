@@ -1,8 +1,8 @@
 !!!! WARNING WARNING WARNING !!!!
 ---------------------------------
-This Web Script allows callers to execute arbitrary logic on the Alfresco
-server, and that logic has full access to not only the native Alfresco
-Foundation Service API, but also the entire Java API as well.
+One of these Web Scripts allows callers to execute arbitrary logic on the
+Alfresco server, and that logic has full access to not only the Alfresco Java
+API, but the entire Java API as well.
 
 THIS MEANS THAT VIRTUALLY LIMITLESS DAMAGE CAN BE CAUSED IF THIS WEB SCRIPT
 IS USED INAPPROPRIATELY.
@@ -14,16 +14,15 @@ its default value.
 
 Description
 -----------
-This module is a Groovy backed Web Script that allows the user to submit
-arbitrary Groovy scripts to the server for execution.  These scripts have full
-access to the Alfresco Foundation Services API (via the Alfresco
-ServiceRegistry) as well as full access to native Java APIs (via Groovy's
-standard integration with the JVM and Java class libraries).
+This module contains two Groovy backed Web Scripts that:
+1. allow an admin to submit arbitrary Groovy scripts to the server for
+   execution.
+2. allow a user to submit a CMIS query to the server for execution.
 
 
 Author
 ------
-Peter Monks (pmonks@alfresco.com)
+Peter Monks (pmonks@gmail.com)
 
 
 Pre-requisites
@@ -37,15 +36,29 @@ Pre-requisites
 
 Installation
 ------------
-1. Compile and package an AMP file for this project using the provided Maven2
+1. Compile and package an AMP file for this project using the provided Maven
    build script:
       mvn clean package
 
 2. Install the AMP using the Module Management Tool.
 
 
-Running a Custom Groovy Script
+Running a CMIS Query
 ------------------------------
+1. Start Alfresco
+
+2. Browse to
+   http://[alfresco_host]:[alfresco_port]/alfresco/s/groovy/cmisquery
+
+3. Login as an Alfresco user
+
+4. Type in any valid CMIS query (e.g. "SELECT * FROM cmis:document")
+
+5. You should receive a formatted HTML table containing the matching result set.
+
+
+Running a Groovy Script
+-----------------------
 1. Start Alfresco
 
 2. Browse to
@@ -53,15 +66,15 @@ Running a Custom Groovy Script
 
 3. Login as an admin user
 
-4. Type in any valid Groovy script eg. [1..100]
+4. Type in any valid Groovy script (e.g. "[1..100]")
 
 5. You should receive a response in JSON format (note that your browser may
    ask you to save the response to disk - some browsers don't handle the JSON
    MIME type themselves)
 
 
-Notes on Uploaded Scripts
--------------------------
+Notes on Groovy Scripts
+-----------------------
 * Uploaded scripts have access to the Alfresco Foundation Services API via the
   ServiceRegistry (see
   http://dev.alfresco.com/resource/docs/java/repository/org/alfresco/service/ServiceRegistry.html).
@@ -72,8 +85,8 @@ Notes on Uploaded Scripts
   http://static.springsource.org/spring/docs/3.0.x/spring-framework-reference/html/beans.html).
   The ApplicationContext gets injected into the script automatically and is
   accessible via a global variable called "applicationContext".
-  Be very careful using this object, as incorrect use can damage your Alfresco installation or
-  repository!
+  Be very careful using this object, as incorrect use can damage your Alfresco
+  installation or repository!
 
 * The result of the last line of the script is converted into JSON format and
   returned by the script.  This means that arbitrarily complex result sets can
@@ -82,5 +95,5 @@ Notes on Uploaded Scripts
   memory, so extremely large POGO graphs may cause Alfresco to run out of
   memory.
 
-* The script will run in a single Alfresco transaction, so care must be taken if lengthy processing
-  is undertaken by the Groovy script.
+* The script will run in a single Alfresco transaction, so care must be taken if
+  lengthy processing is undertaken by the Groovy script.

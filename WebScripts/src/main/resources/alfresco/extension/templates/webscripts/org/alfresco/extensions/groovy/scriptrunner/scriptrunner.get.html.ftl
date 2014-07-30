@@ -9,7 +9,7 @@
   <div style="float:left;width:60%;height:50%">
     <h2>Groovy script:</h2>
     <form method="POST" action="${url.service}.json" target="results">
-      <textarea cols="160" rows="25" name="script"></textarea>
+      <textarea style="width: 70%; height: 70%;" name="script"></textarea>
       <br/>
       <button type="submit"><span style="font-size:150%;font-weight:bold">&nbsp;&nbsp;&nbsp;&nbsp;Go!&nbsp;&nbsp;&nbsp;&nbsp;</button>
     </form>

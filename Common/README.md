@@ -5,7 +5,7 @@ This module provides some simple "glue" code that simplifies the development of 
 Peter Monks (pmonks@alfresco.com)
 
 ## Pre-requisites
-* Alfresco (Labs or Enterprise) v3.3 or greater.
+* Alfresco (Community or Enterprise) v4.0 or greater.
 
 ## Installation
 1. Compile and package an AMP file for this project using the provided Maven2 build script.
@@ -30,7 +30,7 @@ To develop a Groovy backed Web Script, develop a Groovy class that implements th
     </lang:groovy>
 
     <!-- See http://wiki.alfresco.com/wiki/Web_Scripts#Spring_Bean_Declaration -->
-    <bean id="webscript.<packageId>.<serviceId>.<httpMethod>"   
+    <bean id="webscript.<packageId>.<serviceId>.<httpMethod>"
           class="org.alfresco.extension.webscripts.groovy.GroovyDelegatingWebScript"
           parent="webscript">
       <constructor-arg index="0" ref="groovy.webscript.myGroovyWebScript" />

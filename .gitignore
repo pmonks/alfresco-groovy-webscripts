@@ -1,8 +1,13 @@
+go.sh
 Common/.classpath
 Common/.project
 Common/.settings
 Common/target
-ScriptRunner/.classpath
-ScriptRunner/.project
-ScriptRunner/.settings
-ScriptRunner/target
+Example/.classpath
+Example/.project
+Example/.settings
+Example/target
+WebScripts/.classpath
+WebScripts/.project
+WebScripts/.settings
+WebScripts/target

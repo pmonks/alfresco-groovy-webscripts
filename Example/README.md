@@ -21,6 +21,7 @@ on a production system.
 
 ## Testing Hot Redeployment
 While Alfresco is still running:
+
 1. Open ```${ALFRESCO_HOME}/tomcat/shared/classes/alfresco/extension/groovy/webscripts/HelloWorldGroovyWebScript.groovy``` in a text editor
 2. Change the greeting
 3. Save the file

@@ -38,8 +38,8 @@
 
   <properties>
     <version.java>1.7</version.java>
-    <version.groovy>2.1.7</version.groovy>
-    <version.webscripts>5.0.q</version.webscripts>
+    <version.groovy>2.1.3</version.groovy>
+    <version.webscripts>5.0.1</version.webscripts>
     <version.junit>4.11</version.junit>
     <version.ezmorph>1.0.6</version.ezmorph>
     <version.json-lib>2.4</version.json-lib>

@@ -16,11 +16,9 @@ Pre-requisites
 
 Installation
 ------------
-1. Compile and package an AMP file for this project using the provided Maven2
-   build script.
-      mvn clean package
-
-2. Install the AMP using the Module Management Tool.
+# Compile and package an AMP file for this project using the provided Maven2 build script.
+   ```mvn clean package```
+# Install the AMP using the Module Management Tool.
 
 
 Usage
@@ -31,6 +29,7 @@ interface, store it somewhere in the Alfresco classpath (suggested location is
 ${TOMCAT_HOME}/shared/classes/alfresco/extension/groovy/webscripts) then wire
 it up in a custom Spring application context file as follows:
 
+```
   <?xml version='1.0' encoding='UTF-8'?>
   <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns:lang="http://www.springframework.org/schema/lang"
@@ -52,6 +51,7 @@ it up in a custom Spring application context file as follows:
     </bean>
 
   </beans>
+```
 
 Implement a Web Script descriptor and response template(s) just as you would
 for a Java backed Web Script (see

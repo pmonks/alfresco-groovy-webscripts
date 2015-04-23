@@ -1,35 +1,20 @@
-Description
------------
-This module provides some simple "glue" code that simplifies the development
-of Groovy backed Web Scripts.
+## Description
+This module provides some simple "glue" code that simplifies the development of Groovy backed Web Scripts.
 
-
-Author
-------
+## Author
 Peter Monks (pmonks@alfresco.com)
 
-
-Pre-requisites
---------------
+## Pre-requisites
 * Alfresco (Labs or Enterprise) v3.3 or greater.
 
+## Installation
+1. Compile and package an AMP file for this project using the provided Maven2 build script. ```mvn clean package```
+2. Install the AMP using the Module Management Tool.
 
-Installation
-------------
-# Compile and package an AMP file for this project using the provided Maven2 build script.
-   ```mvn clean package```
-# Install the AMP using the Module Management Tool.
+## Usage
+To develop a Groovy backed Web Script, develop a Groovy class that implements the ```org.alfresco.extension.webscripts.groovy.GroovyDeclarativeWebScript``` Java interface, store it somewhere in the Alfresco classpath (suggested location is ```${TOMCAT_HOME}/shared/classes/alfresco/extension/groovy/webscripts``) then wire it up in a custom Spring application context file as follows:
 
-
-Usage
------
-To develop a Groovy backed Web Script, develop a Groovy class that implements
-the org.alfresco.extension.webscripts.groovy.GroovyDeclarativeWebScript Java
-interface, store it somewhere in the Alfresco classpath (suggested location is
-${TOMCAT_HOME}/shared/classes/alfresco/extension/groovy/webscripts) then wire
-it up in a custom Spring application context file as follows:
-
-```
+```xml
   <?xml version='1.0' encoding='UTF-8'?>
   <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns:lang="http://www.springframework.org/schema/lang"
@@ -53,7 +38,4 @@ it up in a custom Spring application context file as follows:
   </beans>
 ```
 
-Implement a Web Script descriptor and response template(s) just as you would
-for a Java backed Web Script (see
-http://wiki.alfresco.com/wiki/Web_Scripts#Java-Backed_Implementations for
-details).
+Implement a Web Script descriptor and response template(s) just as you would for a Java backed Web Script (see http://wiki.alfresco.com/wiki/Web_Scripts#Java-Backed_Implementations for details).

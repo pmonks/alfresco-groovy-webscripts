@@ -13,7 +13,7 @@ Peter Monks (pmonks@alfresco.com)
 2. Install the AMP using the Module Management Tool.
 
 ## Usage
-To develop a Groovy backed Web Script, develop a Groovy class that implements the ```org.alfresco.extension.webscripts.groovy.GroovyDeclarativeWebScript``` Java interface, store it somewhere in the Alfresco classpath (suggested location is ```${TOMCAT_HOME}/shared/classes/alfresco/extension/groovy/webscripts``) then wire it up in a custom Spring application context file as follows:
+To develop a Groovy backed Web Script, develop a Groovy class that implements the ```org.alfresco.extension.webscripts.groovy.GroovyDeclarativeWebScript``` Java interface, store it somewhere in the Alfresco classpath (suggested location is ```${TOMCAT_HOME}/shared/classes/alfresco/extension/groovy/webscripts```) then wire it up in a custom Spring application context file as follows:
 
 ```xml
   <?xml version='1.0' encoding='UTF-8'?>

@@ -8,7 +8,8 @@ Peter Monks (pmonks@alfresco.com)
 * Alfresco (Labs or Enterprise) v3.3 or greater.
 
 ## Installation
-1. Compile and package an AMP file for this project using the provided Maven2 build script. ```mvn clean package```
+1. Compile and package an AMP file for this project using the provided Maven2 build script.
+   ```mvn clean package```
 2. Install the AMP using the Module Management Tool.
 
 ## Usage
